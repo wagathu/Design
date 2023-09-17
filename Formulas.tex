@@ -1,0 +1,692 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
+\lstset{defaultdialect=[5.3]Lua}
+\lstset{defaultdialect=[x86masm]Assembler}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\usepackage[normalem]{ulem}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\nocite{*}
+\usepackage[numbers]{natbib}
+\usepackage{titlesec}
+\titleformat{\section}[block]{\color{black}\Large\bfseries\filcenter}{}{1em}{}
+\usepackage{mdframed}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={DESIGN AND ANALYSIS OF EXPERIMENTS},
+  pdfauthor={B.M Njuguna},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{\textbf{DESIGN AND ANALYSIS OF EXPERIMENTS}}
+\author{\textbf{B.M Njuguna}}
+\date{\textbf{2022-10-29}}
+
+\begin{document}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+This paper is based on advanced experimental design for scientific
+Studies. The various formulas used in different designs and experiments
+are as outlined below.
+
+\hypertarget{one-way-classification-model}{%
+\section{1. One Way Classification
+Model}\label{one-way-classification-model}}
+
+This is basically the Analysis of Covariance(ANCOVA). Here single factor
+experiment with single covariate is considered. The model is as follows;
+
+\[Y_{ij} = \mu+\tau_i+\beta(x_{ij}-\bar{x..} )+ \epsilon_{ij}\]
+
+where; i = 1, 2, \ldots, t and j = 1,2, \ldots{} r
+
+\(Y_{ij}\)- is the jth response variable taken under the ith treatment
+
+\(\mu\) - overall mean
+
+\(x_{ij}\) - The measure of covariate corresponding to \(Y_{ij}\)
+
+\(\bar{x..}\) - The mean of \(x_{ij}\) value
+
+\(\beta\) - The linear regression coefficient of \(Y_{ij}\) and
+\(x{ij}\)
+
+The notations used are;
+
+\[S_{yy}=\sum_{i=1}^t\sum_{j=1}^r(Y_{ij}-\bar{Y..})^2=\sum_{i=1}^t\sum_{j=1}^rY_{ij}^2-\frac{Y..^2}{tr}\]
+
+\[S_{xx}=\sum_{i=1}^t\sum_{j=1}^r(X_{ij}-\bar{x..})^2=\sum_{i=1}^t\sum_{j=1}^rX_{ij}^2-\frac{X..^2}{tr}\]
+
+\[S_{xy}=\sum_{i=1}^t\sum_{j=1}^r(Y_{ij}-\bar{Y..})(X_{ij}-\bar{x..})=\sum_{i=1}^t\sum_{j=1}^rY_{ij}X_{ij}-\frac{Y..X..}{tr}\]
+
+\[T_{yy}=\sum_{i=1}^t\sum_{j=1}^r(Y_{i.}-\bar{Y..})^2=\frac{\sum_{i=1}^tY_{i.}^2}{r}-\frac{Y_{..}^2}{tr}\]
+
+\[T_{xx}=\sum_{i=1}^t\sum_{j=1}^r(X_{i.}-\bar{X..})^2=\frac{\sum_{i=1}^tX_{i.}^2}{r}-\frac{X_{..}^2}{tr}\]
+
+\[\frac{\sum_{i=1}^tY_{i}Xi}{r}-\frac{Y_{..}X..}{tr}\]
+
+\[E_{yy}=S_{yy}-T_{yy}\]
+
+\[E_{xx}=S_{xx}-T_{xx}\]
+
+\[E_{xy}=S_{xy}-T_{xy}\]
+
+The statistical analysis is;
+
+LSE of \(\mu\) is; \(\hat{\mu}=\bar{Y..}\)
+
+Then;
+
+\[\hat{\beta}=\frac{E_{xy}}{E_{xx}}\]
+
+\[SSE = E_{yy} - \frac{E_{xy}^2}{Exx}\]
+
+SSE usually have t(r-1)-1 degrees of freedom
+
+Now suppose we use to test \(\tau_i=0\). Then under Null hypothesis, the
+reduced model will be;
+
+\[Y_{ij} = \mu+\beta(x_{ij}-\bar{x..} + \epsilon_{y}\]
+
+Then;
+
+\[\hat{\beta}=\frac{S_{xy}}{S_{xx}}\]
+
+And;
+
+\[SSE' = S_{yy}-\frac{S_{xy}^2}{S_{xx}}\]
+
+note \(SSE\) is smaller than \(SSE'\), where \(SSE'-SSE\) is a reduction
+in sums of squares due to \(\tau_i\). Therefore for testing
+\(\tau_i=0\), the test statistic is;
+
+\[F_{calc}=\frac{(SSE'-SSE)/(t-1)}{SSE/(t(r-1)-1)}\]
+
+We test it against \(F_{(t-1),t(r-1)-1,\alpha}\). The ANOVA table is as
+follows;
+
+\begin{tabular}{l|l|l|l|l|l|l}
+\hline
+...1 & ...2 & SS and Product & ...4 & ...5 & Adjustment for Regression & ...7\\
+\hline
+Source of Variation & df & X & XY & Y & Y & df\\
+\hline
+Treatment & t-1 & Txx & Txy & Tyy & NA & NA\\
+\hline
+Error & t(r-1) & Exx & Exy & Eyy & SSE & t(r-1)-1\\
+\hline
+Total & tr-1 & Sxx & Sxy & Syy & SSE' & tr-2\\
+\hline
+Adjusted Treatment & NA & NA & NA & NA & SSE'-SSE & t-1\\
+\hline
+\end{tabular}
+
+\newpage
+
+\hypertarget{nested-designs}{%
+\section{2. Nested Designs}\label{nested-designs}}
+
+\hypertarget{i.-two---stage-nested-designs}{%
+\subsection{i. Two - Stage Nested
+Designs}\label{i.-two---stage-nested-designs}}
+
+The statistical model is;
+
+\[Y_{ijk}=\mu+\tau_i+\beta_{j(i)}+\epsilon_{(ij)k}\]
+
+where, i = 1,2,\ldots,a, j = 1,2,\ldots,b, and k = i,2,\ldots r
+
+\(\mu\) - overall mean
+
+\(\tau_i\) - Effect of the ith factor A
+
+\(\beta_{j(i)}\) - Effect of the jth factor B nested under factor A
+
+\(\epsilon_{(ij)k}\) - Random error term.
+
+The sums of squares are partitioned as follows;
+
+\[SS_{total} = SS_{A}+ss_{B(A)}+SS_{Error}\]
+
+They are calculated as follows;
+
+\[SS_{Total} = \sum_{i=1}^a\sum_{j=1}^b\sum_{k=1}^rY_{ijk}^2-\frac{(Y...)^2}{abr}\]
+
+\[SS_A=\frac{\sum_{i=1}^aY_{i..}^2}{br}-\frac{(Y...)^2}{abr}\]
+
+\[SS_{B(A)} = \frac{\sum_{i=1}^a\sum_{j=1}^bY_{ij.}^2}{r}-\frac{\sum_{i=1}^aYi..^2}{br}\]
+
+\[SS_{Error}=\sum_{i=1}^a\sum_{j=1}^b\sum_{k=1}^rY_{ijk}^2-\frac{\sum_{i=1}^a\sum_{j=1}^bY_{ij.}^2}{r}\]
+
+The ANOVA table is as follows;
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1264}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2011}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2931}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3678}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\centering
+Source of Variation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+df
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+SS
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+MS
+\end{minipage} \\
+\midrule()
+\endhead
+\(
+           A
+          \) & \(
+                            a-1
+                            \) & \(
+                                        SS_{A}
+                                         \) & \(
+                                                      MS_A
+                                                      \) \\
+\(
+         B(A)
+          \) & \(a(b-1)\) & \(
+                                      SS_{B(A)}
+                                         \) & \(
+                                                   MS_{B(A)}
+                                                      \) \\
+\(
+         Error
+          \) & \(ab(r-1)\) & \(
+                                      SS_{Error}
+                                         \) & \(
+                                                   MS_{Error}
+                                                      \) \\
+\(
+         Total
+          \) & \(
+                           abr-1
+                            \) & \(
+                                      SS_{Total}
+                                         \) & \\
+\bottomrule()
+\end{longtable}
+
+The appropriate statistic for testing the effect of factor A and B
+depends on whether the levels of A and B are fixed or random. The
+Expected Mean Squares in the two stage nested design are as follows;
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0838}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3353}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3114}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2575}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[
+E(MS)
+\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+A - fixed
+
+B- fixed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+A - fixed
+
+B - Random
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+A - Random
+
+B - Random
+\end{minipage} \\
+\midrule()
+\endhead
+\(
+E(MS_A)
+\) & \(
+\frac{\sigma^2+br\sum\tau_i^2}{a-1}
+\) & \(
+\sigma^2+r\sigma^2_\beta+\frac{br\sum\tau_i}{a-1}
+\) & \(
+\sigma^2+r\sigma^2_\beta+br\sigma^2_\tau
+\) \\
+\(
+E(MS_{AB})
+\) & \(
+\sigma^2+\frac{r\sum_{i}\sum_j\beta_{j(i)}^2}{a(b-1)}
+\) & \(
+\sigma^2+r\sigma^2_\beta
+\) & \(
+\sigma^2+r\sigma^2_\beta
+\) \\
+\(
+E(MS_E)
+\) & \(
+\sigma^2
+\) & \(
+\sigma^2
+\) & \(
+\sigma^2
+\) \\
+\bottomrule()
+\end{longtable}
+
+The testing of hypothesis is as follows;
+
+The testing of hypothesis is as follows;
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \uline{\textbf{when A is fixed and B is random}}
+\end{enumerate}
+
+To test \(H_0:\tau_i=0\) vs \(H_1:\tau_i\ne0\) the test statistic is;
+
+\[F_{calc}=\frac{MS_A}{MS_{B(A)}}\]
+
+We reject \(H_0\) is \(F_{calc}>F_{a-1,a(b-1),\alpha}\)
+
+To test \(H_0:\sigma^2_\beta=0\) vs \(H_1:\sigma^2_\beta\neq0\), the
+test statistic is;
+
+\[F{(calc)=\frac{MS_{B(A)}}{MS_{Error}}}\]
+
+We reject \(H_0\) is \(F_{calc}>F_{a(b-1),ab(r-1),\alpha}\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \uline{\textbf{A and B fixed}}
+\end{enumerate}
+
+To test \(H_0:\tau_i=0\) vs \(H_1:\tau_i\ne0\) the test statistic is;
+
+\[F_{calc}=\frac{MS_A}{MS_{Error}}\]
+
+To test \(H_0:\beta_{j(i)}=0\) vs \(H_1:\beta_{j(i)}\neq0\), the test
+statistic is;
+
+\[F{(calc)=\frac{MS_{B(A)}}{MS_{Error}}}\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \uline{\textbf{A and B random}}
+\end{enumerate}
+
+To test \(H_0:\sigma^2_{\tau}=0\) vs \(H_1:\sigma^2{_\tau}\ne0\) the
+test statistic is;
+
+\[F_{calc}=\frac{MS_A}{MS_{B(A)}}\]
+
+We reject \(H_0\) is \(F_{calc}>F_{a-1,a(b-1),\alpha}\)
+
+To test \(H_0:\sigma^2_\beta=0\) vs \(H_1:\sigma^2_\beta\neq0\), the
+test statistic is;
+
+\[F{(calc)=\frac{MS_{B(A)}}{MS_{Error}}}\]
+
+We reject \(H_0\) is \(F_{calc}>F_{a(b-1),ab(r-1),\alpha}\)
+
+\hypertarget{ii.-three-stage-nested-design}{%
+\subsection{ii. Three Stage Nested
+Design}\label{ii.-three-stage-nested-design}}
+
+The model is written as;
+
+\[Y_{ijkl}=\mu+\tau_i+\beta_{j(i)}+\gamma_{k(ij)}+\epsilon_{(ijk)l}\]
+
+where; i=1,2,\ldots a, j = 1,2,\ldots,b, k = 1,2,\ldots c and l =
+1,2,\ldots r
+
+\(\mu\) - overall mean
+
+\(\tau_i\) - Effect of the ith factor A
+
+\(\beta_{j(i)}\) - Effect of the jth factor B nested under factor A
+
+\(\gamma_{k(ij)}\) - Effect of the kth factor B nested under factor A
+and B
+
+\(\epsilon_{(ij)k}\) - Random error term.
+
+The sums of squares are partitioned as follows;
+
+\[SS_{Total}=SS_A+SS_{B(A)}+SS_{C(B)}+SS_{Error}\]
+
+\[SS_{Total = \sum_i\sum_j\sum_k\sum_lY_{ijkl}^2}-\frac{Y_{...}^2}{abcr}\]
+
+\[SS_A = \frac{\sum_iY_{i...}^2}{bcr}-CT\]
+
+\[SS_{B(A)}=\frac{\sum_i\sum_jY_{ij..}^2}{cr}-\frac{\sum_iY_{i...}^2}{bcr}\]
+
+\[SS_{C(B)}=\frac{\sum_i\sum_j\sum_kY_{ijk.}^2}{r}-\frac{\sum_i\sum_jY_{ij..}^2}{cr}\]
+
+\[SS_{Error}=\sum_i\sum_j\sum_k\sum_lY_{ijkl}^2-\frac{\sum_i\sum_j\sum_kY_{ijk.}^2}{r}\]
+
+The ANOVA Table is as follows;
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1310}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2083}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2857}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3631}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\centering
+Source of Variation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+df
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+SS
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+MS
+\end{minipage} \\
+\midrule()
+\endhead
+\(
+           A
+          \) & \(
+                          a-1
+                          \) & \(
+                                      SS_A
+                                      \) & \(
+                                                   MS_A
+                                                   \) \\
+\(
+         B(A)
+          \) & \(
+                          b-1
+                          \) & \(
+                                   SS_{B(A)}
+                                      \) & \(
+                                                MS_{B(A)}
+                                                   \) \\
+\(
+         C(A)
+          \) & \(
+                        ab(c-1)
+                          \) & \(
+                                   SS_{C(B)}
+                                      \) & \(
+                                                MS_{C(B)}
+                                                   \) \\
+\(
+         Error
+          \) & \(
+                        abc(r-1)
+                          \) & \(
+                                   SS_{Error}
+                                      \) & \(
+                                                MS_{Error}
+                                                   \) \\
+\(
+         Total
+          \) & \(
+                         abcr-1
+                          \) & \(
+                                   SS_{Total}
+                                      \) & \\
+\bottomrule()
+\end{longtable}
+
+\newpage
+
+\hypertarget{balanced-incomplete-block-design}{%
+\section{3. Balanced Incomplete Block
+Design}\label{balanced-incomplete-block-design}}
+
+In some experiments, the number of treatments is large, the adoption of
+RCBD therefore may result in an increase of error variance due to large
+block size. Here we use the BIBD. The parameters of BIBD are
+\(t, b, r, k, \lambda\). For an experiment to be a BIBD, it must satisfy
+the following two conditions;
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(bk=rt\)
+\item
+  \(\lambda(t-1)=r(k-1)\), this implies that;
+  \(\lambda=\frac{r(k-1)}{t-1}\). Note that \(\lambda\) is the number of
+  times each pair of treatment appear or occur together in the same
+  block.
+\end{enumerate}
+
+The model can be written as;
+
+\[Y_{ij}=\mu+\tau_i+\beta_j+\epsilon_{ij}\]
+
+where; i = 1,2,\ldots,t, j = 1,2,\ldots,r
+
+\(\mu\) - overall mean
+
+\(\tau_i\) - Effect of the ith treatment
+
+\(\beta_j\) - Effect of the jth block
+
+\(\epsilon_{ij}\) - Random error term
+
+The sums of squares are partitioned as follows;
+
+\[SS_{Total}=SS_{Block}+SS_{treat(adj)}+SS_{Error}\]
+
+\[SS_{Total = \sum_i\sum_jY_{ij}^2}- \frac{Y_{..}^2}{N=(r\times t\space or\space b\times k)}\]
+
+\[SS_{Block}=\frac{\sum_{j=1}^kY_{ij}^2}{k}-\frac{Y_{..}^2}{N}\]
+
+\[SS_{treat(adj)}=k\frac{\sum_{i=1}^rQ_I}{\lambda t}\]
+
+where \(Q_i\) is the adjusted total for the ith treatment computed as;
+
+\[Q_i=Y_{i.}-\frac{1}{k}\sum_jn_{ijY_{.j}}\]
+
+i = 1,2,\ldots,t
+
+Then; \(n_{ij}=1\) if treatment \(i\) appears in block \(j\) and
+\(n_{ij}=0\) otherwise.
+
+The ANOVA table is as follows;
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1344}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1882}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2849}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3817}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\centering
+Source of Variation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+df
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+SS
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+MS
+\end{minipage} \\
+\midrule()
+\endhead
+\(
+         Block
+          \) & \(
+                          b-1
+                          \) & \(
+                                    SS_{Block}
+                                        \) & \(
+                                                      MS_{Block}
+                                                          \) \\
+\(
+      Treat(adj)
+          \) & \(
+                          t-1
+                          \) & \(
+                                  SS_{treat(adj)}
+                                        \) & \(
+                                                    MS_{treat(adj)}
+                                                          \) \\
+\(
+         Error
+          \) & \(
+                        N-t-b+1
+                          \) & \(
+                                    SS_{Error}
+                                        \) & \(
+                                                      MS_{Error}
+                                                          \) \\
+\(
+         Total
+          \) & \(
+                          N-1
+                          \) & \(
+                                    SS_{Total}
+                                        \) & \\
+\bottomrule()
+\end{longtable}
+
+To test \(H_o:\tau_i=0\) vs \(H_1:\tau_i\ne0\), the test statistic is;
+
+\[F_{calc}=\frac{MS_{treat(adj)}}{MS_{Error}}\]
+
+We reject \(H_0\) if \(F_{calc}>F_{t-1,N-t-b+1}\)
+
+\newpage
+
+\hypertarget{partially-balanced-incomplete-design.}{%
+\section{4. Partially Balanced Incomplete
+Design.}\label{partially-balanced-incomplete-design.}}
+
+BIBD do not exist for all combination of parameters you might with to
+employ. PBIBD are designs whereby the number of times a given treatment
+occur will vary from treatment to treatment where some pairs of
+treatment appear together \(\lambda_1\) times and others appear
+\(\lambda_2\) times. Note \(\lambda_1>\lambda_2\). This is the simplest
+of the PBIBD which had two associate classes; \(\lambda_1\) and
+\(\lambda_2\). For a design to be PBIBD, it must satisfy the following
+two conditions;
+
+\[\sum_{i=1}^2n_i=t-1,\space n_1+n_2=t-1\]
+
+\[\sum_{i=1}^2\lambda_in_i=r(k-1), \space \lambda_1n_1+\lambda_2n_2=r(k-1)\]
+
+How to determine \(P_{jk}^1\), you pick any two pair of treatments that
+are of first associate. Then to determine \(P_{jk}^2\), you pick any two
+pairs of treatments which are second associate.
+
+\hypertarget{lattice-designs}{%
+\subsection{Lattice Designs}\label{lattice-designs}}
+
+Consider a balanced incomplete design with \(t=k^2\) treatments arranged
+in \(b=k(k+1)\) blocks with \(k\) runs per blocks and \(r=k+1\)
+replicates. Such a design is called a \textbf{balanced lattice}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  A design for \(k^2\) treatments in \(2k\) blocks of \(k\) runs with 2
+  replicates is called a \textbf{simple lattice}.
+\item
+  A lattice design with \(t=k^2\) treatments in \(3k\) blocks grouped
+  into 3 replicates, \(r=3\) is called a \textbf{triple lattice design}.
+\item
+  A lattice design for \(t = k^2\) treatments in \(4k\) blocks arranged
+  in 4 replicates, \(r=4\) is called a \textbf{quadruple lattice}.
+\item
+  A lattice design for \(t=k^3\) treatments in \(k^2\) blocks of k runs
+  is called a \textbf{cubic lattice design}.
+\item
+  A lattice design for \(t=k(k+1)\) treatments in \(k+1\) blocks of size
+  k is called a \textbf{rectangular lattice design}.
+\end{enumerate}
+
+\end{document}
